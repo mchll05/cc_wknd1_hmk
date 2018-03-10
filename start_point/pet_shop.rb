@@ -38,7 +38,7 @@ return breed_types
 end
 
 
-def find_pet_by_name(pet_shop, name)     #Was able to get most of, but threw off by the has creation, will study that part
+def find_pet_by_name(pet_shop, name)
 name_found = Hash.new
 for pets in pet_shop[:pets]
   if pets[:name] == name
@@ -59,22 +59,17 @@ def add_pet_to_stock(pet_shop, new_pet)
 end
 
 
-def customer_pet_count(customer)
-  lack_of_pet = []
-  for pets in customer[:pets]
-    if customer[:pets] = amount_pets
+def customer_pet_count(customer) #Need to understand why @ was used here and not elsewhere
+total_pet_count = []
+  for customer in @customers
+    for pet in customer[:pets]
+      total_pet_count.push(pet)
     end
-end
-  return customer[:pets].length
+  end
+  return total_pet_count.length
 end
 
+
 def add_pet_to_customer(customer_pet_count, new_pet)
-customer[:pets].push {|pet| customer[:pets] == new_pet}
-# customer[:pets] += new_pet
-  return customer_pet_count[:pets].push.length
+  return customer_pet_count[:pets].push(new_pet).length
 end
-# def test_add_pet_to_customer
-#   customer = @customers[0]
-#   add_pet_to_customer(customer, @new_pet)
-#   assert_equal(1, customer_pet_count(customer))
-# end
