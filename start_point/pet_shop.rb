@@ -73,3 +73,30 @@ end
 def add_pet_to_customer(customer_pet_count, new_pet)
   return customer_pet_count[:pets].push(new_pet).length
 end
+
+######## OPTIONAL ########
+
+def customer_can_afford_pet(customer, new_pet)
+customer[:cash] >= new_pet[:price]
+end
+
+
+def sell_pet_to_customer(pet_shop, pet, customer)
+pet_shop[:pets].delete_if {|pet| pet[:name] == name}
+for pet in pet_shop[:admin][:pets_sold]
+pet_shop[:admin][:total_cash] += pet_shop[:pets][:price]
+
+
+# customer[:pets] += pet
+# pet_shop[:admin][:pets_sold] += pets_sold
+# pet_shop[:admin][:total_cash] += pet_shop[:pets][:price]
+end
+
+  # def test_sell_pet_to_customer__pet_found
+  #   customer = @customers[0]
+  #   pet = find_pet_by_name(@pet_shop,"Arthur") D
+  #   sell_pet_to_customer(@pet_shop, pet, customer)
+  #   assert_equal(1, customer_pet_count(customer))
+  #   assert_equal(1, pets_sold(@pet_shop))
+  #   assert_equal(1900, total_cash(@pet_shop))
+  # end
